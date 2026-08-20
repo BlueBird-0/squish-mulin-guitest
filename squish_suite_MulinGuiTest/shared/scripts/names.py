@@ -15,10 +15,12 @@ stackedWidget_treeView_QTreeView = {"container": frame_stackedWidget_QStackedWid
 treeView_testProject_SquishTest1 = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest1", "type": "QModelIndex"}
 treeView_testProject_SquishTest2 = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest2", "type": "QModelIndex"}
 treeView_testProject_SquishTest3 = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest3", "type": "QModelIndex"}
+treeView_testProjectFolders = {"column": 0, "container": stackedWidget_treeView_QTreeView, "type": "QModelIndex"}
 
 treeView_SquishTest1_mdp_QModelIndex = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest1.mdp", "type": "QModelIndex"}
 treeView_SquishTest2_mdp_QModelIndex = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest2.mdp", "type": "QModelIndex"}
 treeView_SquishTest3_mdp_QModelIndex = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest3.mdp", "type": "QModelIndex"}
+treeView_project_mdps = {"column": 0, "container": stackedWidget_treeView_QTreeView, "type": "QModelIndex"}
 
 muLiN_Creator_QMenu_2 = {"occurrence": 13, "type": "QMenu", "unnamed": 1, "visible": 0, "window": muLiN_Creator_MinervaD_MvMainWindow}
 qFileDialog_Open_QPushButton = {"text": "Open", "type": "QPushButton", "unnamed": 1, "visible": 1, "window": qFileDialog_QFileDialog}
