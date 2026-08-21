@@ -38,7 +38,7 @@ from objectmaphelper import Wildcard
 # 공용 함수
 # ---------------------------------------------------------------------------
 
-def close_recover_dialog(timeout=3000):
+def close_recover_dialog(timeout=1000):
     """복구 다이얼로그가 떠 있으면 닫습니다.
 
     ``timeout`` 동안 다이얼로그가 나타나지 않으면 로그만 남기고 그냥 넘어갑니다.
@@ -47,6 +47,7 @@ def close_recover_dialog(timeout=3000):
     :param timeout: 다이얼로그 대기 시간(ms). 기본 3000ms.
     :returns: 실제로 다이얼로그를 닫았으면 ``True``, 나타나지 않았으면 ``False``.
     """
+    
     try:
         squish.waitForObject(
             names.mvRecoverProjectDialog_MinervaD_MvRecoverProjectDialog, timeout
@@ -61,8 +62,8 @@ def close_recover_dialog(timeout=3000):
 
 
 def open_project(project_name,
-                 timeout=3000,
-                 recover_dialog_timeout=3000):
+                 timeout=1000,
+                 recover_dialog_timeout=1000):
     """프로젝트명을 받아 해당 MuLiN 프로젝트를 엽니다.
 
     수행 순서
@@ -91,12 +92,12 @@ def open_project(project_name,
         # 트리 뷰에서 프로젝트 폴더로 진입
         folder = dict(names.treeView_testProjectFolders)
         folder["text"] = name
-        squish.doubleClick(squish.waitForObject(folder))
+        squish.doubleClick(squish.waitForObject(folder, timeout))
     
         # 폴더 안의 .mdp 파일을 더블클릭하여 열기
         project = dict(names.treeView_project_mdps)
-        project["text"] = name + ".mdp"
-        squish.doubleClick(squish.waitForObject(project))
+        project["text"] = Wildcard("*.mdp")
+        squish.doubleClick(squish.waitForObject(project, timeout))
 
     # 프로젝트가 열렸는지 확인
     except LookupError:
