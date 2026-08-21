@@ -12,14 +12,8 @@ qFileDialog_splitter_QSplitter = {"name": "splitter", "type": "QSplitter", "visi
 splitter_frame_QFrame = {"container": qFileDialog_splitter_QSplitter, "name": "frame", "type": "QFrame", "visible": 1}
 frame_stackedWidget_QStackedWidget = {"container": splitter_frame_QFrame, "name": "stackedWidget", "type": "QStackedWidget", "visible": 1}
 stackedWidget_treeView_QTreeView = {"container": frame_stackedWidget_QStackedWidget, "name": "treeView", "type": "QTreeView", "visible": 1}
-treeView_testProject_SquishTest1 = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest1", "type": "QModelIndex"}
-treeView_testProject_SquishTest2 = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest2", "type": "QModelIndex"}
-treeView_testProject_SquishTest3 = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest3", "type": "QModelIndex"}
-treeView_testProjectFolders = {"column": 0, "container": stackedWidget_treeView_QTreeView, "type": "QModelIndex"}
 
-treeView_SquishTest1_mdp_QModelIndex = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest1.mdp", "type": "QModelIndex"}
-treeView_SquishTest2_mdp_QModelIndex = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest2.mdp", "type": "QModelIndex"}
-treeView_SquishTest3_mdp_QModelIndex = {"column": 0, "container": stackedWidget_treeView_QTreeView, "text": "SquishTest3.mdp", "type": "QModelIndex"}
+treeView_testProjectFolders = {"column": 0, "container": stackedWidget_treeView_QTreeView, "type": "QModelIndex"}
 treeView_project_mdps = {"column": 0, "container": stackedWidget_treeView_QTreeView, "type": "QModelIndex"}
 
 muLiN_Creator_QMenu_2 = {"occurrence": 13, "type": "QMenu", "unnamed": 1, "visible": 0, "window": muLiN_Creator_MinervaD_MvMainWindow}
@@ -115,3 +109,5 @@ o_QMenu = {"title": "최근 프로젝트들", "type": "QMenu", "unnamed": 1, "vi
 mvRecoverProjectDialog_tbRecoveryList_QTableWidget = {"name": "tbRecoveryList", "type": "QTableWidget", "visible": 1, "window": mvRecoverProjectDialog_MinervaD_MvRecoverProjectDialog}
 tbRecoveryList_QPushButton = {"container": mvRecoverProjectDialog_tbRecoveryList_QTableWidget, "text": "복구", "type": "QPushButton", "unnamed": 1, "visible": 1}
 o_QMessageBox_2 = {"type": "QMessageBox", "unnamed": 1, "visible": 1, "windowTitle": "프로젝트 복구"}
+mvNewProjectDialog_MinervaD_MvNewProjectDialog = {"name": "MvNewProjectDialog", "type": "MinervaD::MvNewProjectDialog", "visible": 1}
+mvNewProjectDialog_btnNext_QPushButton = {"name": "btnNext", "type": "QPushButton", "visible": 1, "window": mvNewProjectDialog_MinervaD_MvNewProjectDialog}
