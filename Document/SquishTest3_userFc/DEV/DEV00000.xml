@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MinervaD_Project>
+<MinervaD_Project software_version="1.0.0.10430" project_name="SquishTest3" organization="" author="IHJEON">
+    <SecretData>3b1e1bfc941b032bce91e7615a13638e18b1975bb0fc892c</SecretData>
+    <Devices>
+        <Device device_code="1001" description="">
+            <Descriptions/>
+        </Device>
+    </Devices>
+</MinervaD_Project>

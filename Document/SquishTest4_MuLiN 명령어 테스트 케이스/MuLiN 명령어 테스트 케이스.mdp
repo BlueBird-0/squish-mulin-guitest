@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MinervaD_Project>
+<MinervaD_Project software_version="1.0.0.10980" category="APP" project_name="MuLiN 명령어 테스트 케이스" author="DELL" createdTime="2026-08-11 09:50:08" memo="">
+    <SecretData>73d176767d57eee0e371ae9c220030dc5243118e6dd1fa3c</SecretData>
+    <Files>
+        <File kind="DUT">DUT/DUT00000.xml</File>
+        <File kind="FC">FC/FC00000.xml</File>
+        <File kind="FB">FB/FB00000.xml</File>
+        <File kind="VAR">VAR/VAR00000.xml</File>
+        <File kind="PRG">PRG/PRG00000.xml</File>
+        <File kind="TASK">TASK/TASK00000.xml</File>
+        <File kind="DEVICE">DEV/DEV00000.xml</File>
+        <File kind="WATCH">WATCH/WATCH00000.xml</File>
+    </Files>
+    <Device device_code="1001"/>
+    <Online interface="Ethernet" userId="" password="">
+        <Ethernet ipAddress="127.0.0.1" secondaryIpAddress="127.0.0.1"/>
+    </Online>
+    <Options>
+        <PowerOnMode value="Program"/>
+    </Options>
+</MinervaD_Project>

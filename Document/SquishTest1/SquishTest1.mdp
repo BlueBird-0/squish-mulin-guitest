@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MinervaD_Project>
+<MinervaD_Project software_version="1.0.0.10430" category="APP" project_name="SquishTest1" author="IHJEON" createdTime="2026-08-18 09:13:03" memo="">
+    <SecretData>3b1e1bfc941b032bce91e7615a13638e18b1975bb0fc892c</SecretData>
+    <Files>
+        <File kind="DUT">DUT/DUT00000.xml</File>
+        <File kind="FC">FC/FC00000.xml</File>
+        <File kind="FB">FB/FB00000.xml</File>
+        <File kind="PRG">PRG/PRG00000.xml</File>
+        <File kind="TASK">TASK/TASK00000.xml</File>
+        <File kind="DEVICE">DEV/DEV00000.xml</File>
+    </Files>
+    <Device device_code="1001"/>
+    <Online interface="Ethernet" userId="" password="">
+        <Ethernet ipAddress="127.0.0.1"/>
+    </Online>
+    <Options>
+        <PowerOnMode value="Program"/>
+    </Options>
+</MinervaD_Project>
