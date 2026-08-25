@@ -60,6 +60,12 @@ def close_recover_dialog(timeout=1000):
     squish.test.log("복구 다이얼로그를 닫았습니다.")
     return True
 
+def new_project(project_name):
+    squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_Documents_mdp_QMenuBar, "파일"))
+    squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenu_3, "새 프로젝트"))
+    squish.type(squish.waitForObject(names.tab_1_edProjectName_MinervaD_MvLineEditor), project_name)
+    squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
+    squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
 
 def open_project(project_name,
                  timeout=1000,
@@ -86,18 +92,22 @@ def open_project(project_name,
     # 메뉴바 '파일' > '프로젝트 열기'
     squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenuBar, "파일"))
     squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenu_3, "프로젝트 열기"))
-    squish.snooze(0.5)
+    squish.waitForObject(names.qFileDialog_QFileDialog, timeout)
 
     try:
         # 트리 뷰에서 프로젝트 폴더로 진입
+        squish.snooze(1)
         folder = dict(names.treeView_testProjectFolders)
         folder["text"] = name
         squish.doubleClick(squish.waitForObject(folder, timeout))
     
         # 폴더 안의 .mdp 파일을 더블클릭하여 열기
+        squish.snooze(1)
         project = dict(names.treeView_project_mdps)
         project["text"] = Wildcard("*.mdp")
+
         squish.doubleClick(squish.waitForObject(project, timeout))
+        squish.snooze(0.5)
 
     # 프로젝트가 열렸는지 확인
     except LookupError:
@@ -105,10 +115,30 @@ def open_project(project_name,
             "'%s' 프로젝트를 열 수 없습니다 확인하지 못했습니다."
             % name
         )
+        squish.nativeType("<Escape>")
         return False
 
     squish.test.log("프로젝트를 열었습니다: %s" % name)
     return True
+
+def open_page(page_name, timeout = 1000):
+    tree = names.mvProjectTreeFrame_treeWidget_MinervaD_MvProjectTreeWidget
+
+    for page_type in ["프로그램", "함수", "함수블록", "Program", "Function", "Function Block"]:
+        try:
+            pageItem = squish.waitForObjectItem(
+                tree,
+                "*.POU." + page_type + "." + page_name,
+                timeout)
+
+            squish.doubleClick(pageItem)
+            squish.snooze(0.5)
+            return
+
+        except:
+            pass
+
+    raise Exception("Page not found: " + page_name)
 
 def build_project():
     """메뉴에서 빌드를 실행하고 에러 없이 성공했는지 검증합니다.
