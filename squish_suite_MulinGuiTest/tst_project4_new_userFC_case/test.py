@@ -21,15 +21,14 @@ def main():
     # 5 OpenPage
     mulin.open_page("Function1")
     
-    # 6. UserFC를 생성합니다.
-    ### Network Qt Graphic Item을 가져옴
-    ladderViewFrame = findObject(names.splitter_LadderView_MinervaD_MvLadderViewFrame)
-    p = ladderViewFrame.networkCenter(0)
+    # 6. UserFC를 생성합니다. 
+    ladderViewFrame = findObject(names.MinervaD_MvLadderViewFrame)
     
-    test.log("[itemCenter] scene=(%d, %d)" % (p.x, p.y))
-    mouseClick(ladderViewFrame, p.x, p.y, Qt.NoModifier, Qt.LeftButton)
+    x, y = mulin.network_center(0)    
+    test.log("[network Center] point=(%d, %d)" % (x, y))
+    mouseClick(ladderViewFrame, x, y, Qt.NoModifier, Qt.LeftButton)
     
-    ### "myEn" Contact와 "myEno" Coil을 생성
+    # "myEn" Contact와 "myEno" Coil을 생성
     clickButton(waitForObject(names.mvNetworkControlFrame_btnContact_MinervaD_MvDragablePushButton))
     snooze(0.5)
     nativeType("enEn")
@@ -55,28 +54,14 @@ def main():
     nativeType("<Return>")
     snooze(0.5)
     
-    ## test
-    test.log("networkItems Test Start")
-    test.log(str(ladderViewFrame.networkItemsDebug(0)))
-    
     ### network item 함수화 하기
-    points = ladderViewFrame.networkItems(0)    
-    for i in range(points.count()):
-        p = points.at(i).toPoint()
-        test.log("points= %d, %d" % (p.x, p.y))
-        mouseClick(ladderViewFrame, p.x, p.y, Qt.NoModifier, Qt.LeftButton)
-        snooze(1)
-    
-    test.log("networkItems Test End")
+    for x, y in mulin.network_items_centers(0):
+        test.log("[network Item Center] point=(%d, %d)" % (x, y))
+        mouseClick(ladderViewFrame, x, y, Qt.NoModifier, Qt.LeftButton)
+        snooze(2)
+        
+    # 7. 여기까지 잘 오고, Build가 된다면 userFC 프로젝트가 성공된 것으로 판정합니다.
+    mulin.build_project()
     
     snooze(10)
-
-def smoothMove(obj, fromX, fromY, toX, toY, steps=25, duration=0.4):
-    """fromX,Y에서 toX,Y까지 duration초 동안 부드럽게 이동"""
-    for s in range(1, steps + 1):
-        t = s / float(steps)
-        t = t * t * (3 - 2 * t)   # ease-in-out: 출발·도착에서 느려짐
-        x = builtins.int((fromX + (toX - fromX) * t))
-        y = builtins.int(builtins.int(fromY + (toY - fromY) * t))
-        mouseMove(obj, x, y)
-        snooze(duration / steps)
+    

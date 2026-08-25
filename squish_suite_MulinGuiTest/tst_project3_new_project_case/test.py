@@ -12,5 +12,11 @@ def main():
     mulin.close_recover_dialog(3000)
     
     # 3. 프로젝트를 생성합니다.
-    mulin.new_project("new_project_test")
+    if mulin.new_project("new_project_test"):
+        test.passes("프로젝트 생성 테스트 성공.")
+    else:
+        test.fail("프로젝트 생성 테스트 실패.")
     snooze(10)
+    
+    # 4. 다음 테스트를 위해 프로젝트를 삭제합니다.
+    # mulin.delete_project("new_project_test")

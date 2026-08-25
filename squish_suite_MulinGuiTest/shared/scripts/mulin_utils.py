@@ -32,6 +32,8 @@ import re
 
 import names
 import squish
+import os
+import shutil
 from objectmaphelper import Wildcard
 
 # ---------------------------------------------------------------------------
@@ -60,12 +62,16 @@ def close_recover_dialog(timeout=1000):
     squish.test.log("복구 다이얼로그를 닫았습니다.")
     return True
 
-def new_project(project_name):
-    squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_Documents_mdp_QMenuBar, "파일"))
-    squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenu_3, "새 프로젝트"))
-    squish.type(squish.waitForObject(names.tab_1_edProjectName_MinervaD_MvLineEditor), project_name)
-    squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
-    squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
+def create_project(project_name):
+    try:
+        squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_Documents_mdp_QMenuBar, "파일"))
+        squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenu_3, "새 프로젝트"))
+        squish.type(squish.waitForObject(names.tab_1_edProjectName_MinervaD_MvLineEditor), project_name)
+        squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
+        squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
+    except Exception:
+        return False
+    return True
 
 def open_project(project_name,
                  timeout=1000,
@@ -171,3 +177,26 @@ def check_build_result():
     else:
         squish.test.fail(f"빌드 실패! {button_text}이(가) 발견되었습니다.")
         return False
+    
+def delete_project(project_name):
+    """프로젝트 폴더를 삭제합니다."""
+    path = os.path.join(os.path.expanduser("~"), "Documents", project_name)
+    shutil.rmtree(path, ignore_errors=True)
+    squish.test.log("프로젝트 폴더 삭제: %s" % path)    
+    
+def network_center(network_idx = 0):
+    ladderViewFrame = squish.findObject(names.MinervaD_MvLadderViewFrame)
+    p = ladderViewFrame.networkCenter(network_idx)
+    return (int(p.x), int(p.y))
+
+def network_items_centers(network_idx = 0):
+    ladderViewFrame = squish.findObject(names.MinervaD_MvLadderViewFrame)
+    points = ladderViewFrame.networkItemsCenters(network_idx)
+    
+    centers = []    
+    for i in range(points.count()):
+        p = points.at(i).toPoint()
+        centers.append((int(p.x), int(p.y)))
+    return centers
+    
+    
