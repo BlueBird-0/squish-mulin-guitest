@@ -21,10 +21,7 @@
     * https://doc.qt.io/squish/applicationcontext-class.html  (detach() / isRunning)
 """
 
-import os
-
 import names
-import squish  # squish.type() 사용 (Python 내장 type 과 이름이 겹치는 것을 피하기 위함)
 import mulin_utils as mulin
 
 # ---------------------------------------------------------------------------

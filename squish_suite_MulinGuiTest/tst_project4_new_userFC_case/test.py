@@ -2,7 +2,6 @@
 
 import names
 import mulin_utils as mulin
-import builtins
 
 def main():
     # 1. 앱 실행 및 대기
