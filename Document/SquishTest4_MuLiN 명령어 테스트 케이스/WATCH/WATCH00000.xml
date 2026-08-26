@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE MinervaD_Project>
-<MinervaD_Project software_version="1.0.0.10980" project_name="MuLiN 명령어 테스트 케이스" organization="" author="DELL">
-    <SecretData>73d176767d57eee0e371ae9c220030dc5243118e6dd1fa3c</SecretData>
-    <WatchList>
-        <WatchData name="Program1.TC8.TIME_TO_NSEC_OUT" disabled="false"/>
-    </WatchList>
-</MinervaD_Project>

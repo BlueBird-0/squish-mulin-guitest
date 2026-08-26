@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MinervaD_Project>
-<MinervaD_Project software_version="1.0.0.11026" project_name="UserFcTest" organization="" author="IHJEON">
+<MinervaD_Project software_version="1.0.0.11026" project_name="CompareTest" organization="" author="IHJEON">
     <SecretData>3b1e1bfc941b032bce91e7615a13638e18b1975bb0fc892c</SecretData>
     <Tasks>
         <Task id="1" name="MainTask" type="Main" priority="0" comment="" prg="12288">

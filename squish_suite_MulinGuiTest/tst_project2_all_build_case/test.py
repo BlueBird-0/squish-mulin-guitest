@@ -43,7 +43,7 @@ APP_EXIT_TIMEOUT_SEC = 10.0    #: AUT 종료 대기(초)
 
 def main():
     # 1. 빌드 대상 프로젝트 목록 ('문서' 폴더에 존재해야 함.)
-    projects = ["SquishTest1", "SquishTest2_math", "SquishTest3_userFc", "SquishTest4_MuLiN 명령어 테스트 케이스"]
+    projects = ["SquishTest1", "SquishTest2_compareFc", "SquishTest3_userFc", "SquishTest4_invalidVariable"]
 
     test.log("총 %d개 프로젝트를 빌드합니다: %s" % (len(projects), ", ".join(projects)))
 
