@@ -13,6 +13,7 @@ splitter_frame_QFrame = {"container": qFileDialog_splitter_QSplitter, "name": "f
 frame_stackedWidget_QStackedWidget = {"container": splitter_frame_QFrame, "name": "stackedWidget", "type": "QStackedWidget", "visible": 1}
 stackedWidget_treeView_QTreeView = {"container": frame_stackedWidget_QStackedWidget, "name": "treeView", "type": "QTreeView", "visible": 1}
 
+qFileDialog_fileNameEdit_QLineEdit = {"name": "fileNameEdit", "type": "QLineEdit", "visible": 1, "window": qFileDialog_QFileDialog}
 treeView_testProjectFolders = {"column": 0, "container": stackedWidget_treeView_QTreeView, "type": "QModelIndex"}
 treeView_project_mdps = {"column": 0, "container": stackedWidget_treeView_QTreeView, "type": "QModelIndex"}
 
@@ -109,7 +110,6 @@ mvNewProjectDialog_btnNext_QPushButton = {"name": "btnNext", "type": "QPushButto
 mvNewProjectDialog_qt_tabwidget_stackedwidget_QStackedWidget = {"name": "qt_tabwidget_stackedwidget", "type": "QStackedWidget", "visible": 1, "window": mvNewProjectDialog_MinervaD_MvNewProjectDialog}
 qt_tabwidget_stackedwidget_tab_1_QWidget = {"container": mvNewProjectDialog_qt_tabwidget_stackedwidget_QStackedWidget, "name": "tab_1", "type": "QWidget", "visible": 1}
 tab_1_edProjectName_MinervaD_MvLineEditor = {"container": qt_tabwidget_stackedwidget_tab_1_QWidget, "name": "edProjectName", "type": "MinervaD::MvLineEditor", "visible": 1}
-o_QMenu_2 = {"type": "QMenu", "unnamed": 1, "visible": 1, "window": MinervaD_MvMainWindow}
 mvProjectTreeFrame_OK_QPushButton = {"container": mvProjectTreeFrame_MinervaD_MvProjectTreeFrame, "text": "OK", "type": "QPushButton", "unnamed": 1, "visible": 1}
 splitter_VariableTableFrame_MinervaD_MvVariableTableFrame = {"container": ladderEditorWidget_splitter_QSplitter, "name": "VariableTableFrame", "type": "MinervaD::MvVariableTableFrame", "visible": 1}
 variableTableFrame_pushButtonRowsNew_QPushButton = {"container": splitter_VariableTableFrame_MinervaD_MvVariableTableFrame, "name": "pushButtonRowsNew", "type": "QPushButton", "visible": 1}
@@ -180,5 +180,6 @@ mvNetworkControlFrame_btnCoil_MinervaD_MvDragablePushButton = {"container": spli
 mvProjectTreeFrame_treeWidget_MinervaD_MvProjectTreeWidget = {"container": mvProjectTreeFrame_MinervaD_MvProjectTreeFrame, "name": "treeWidget", "type": "MinervaD::MvProjectTreeWidget", "visible": 1}
 treeWidget_UserFcTest_QModelIndex = {"column": 0, "container": mvProjectTreeFrame_treeWidget_MinervaD_MvProjectTreeWidget, "text": "UserFcTest", "type": "QModelIndex"}
 userFcTest_POU_QModelIndex = {"column": 0, "container": treeWidget_UserFcTest_QModelIndex, "text": "POU", "type": "QModelIndex"}
+o_QMenu_2 = {"type": "QMenu", "unnamed": 1, "visible": 1, "window": MinervaD_MvMainWindow}
 pOU_QModelIndex = {"column": 0, "container": userFcTest_POU_QModelIndex, "text": "함수", "type": "QModelIndex"}
 o_Function1_QModelIndex = {"column": 0, "container": pOU_QModelIndex, "text": "Function1", "type": "QModelIndex"}

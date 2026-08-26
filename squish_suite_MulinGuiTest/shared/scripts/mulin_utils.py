@@ -62,17 +62,6 @@ def close_recover_dialog(timeout=1000):
     squish.test.log("복구 다이얼로그를 닫았습니다.")
     return True
 
-def create_project(project_name):
-    try:
-        squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_Documents_mdp_QMenuBar, "파일"))
-        squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenu_3, "새 프로젝트"))
-        squish.type(squish.waitForObject(names.tab_1_edProjectName_MinervaD_MvLineEditor), project_name)
-        squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
-        squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
-    except Exception:
-        return False
-    return True
-
 def open_project(project_name,
                  timeout=1000,
                  recover_dialog_timeout=1000):
@@ -101,12 +90,14 @@ def open_project(project_name,
     squish.waitForObject(names.qFileDialog_QFileDialog, timeout)
 
     try:
-        # 트리 뷰에서 프로젝트 폴더로 진입
+        # 프로젝트 폴더로 진입
         squish.snooze(1)
-        folder = dict(names.treeView_testProjectFolders)
-        folder["text"] = name
-        squish.doubleClick(squish.waitForObject(folder, timeout))
-    
+        if not _goto_folder(project_dir(name), timeout):
+            # 파일명 입력란을 찾지 못하면 현재 목록에서 폴더를 더블클릭합니다.
+            folder = dict(names.treeView_testProjectFolders)
+            folder["text"] = name
+            squish.doubleClick(squish.waitForObject(folder, timeout))
+
         # 폴더 안의 .mdp 파일을 더블클릭하여 열기
         squish.snooze(1)
         project = dict(names.treeView_project_mdps)
@@ -126,25 +117,6 @@ def open_project(project_name,
 
     squish.test.log("프로젝트를 열었습니다: %s" % name)
     return True
-
-def open_page(page_name, timeout = 1000):
-    tree = names.mvProjectTreeFrame_treeWidget_MinervaD_MvProjectTreeWidget
-
-    for page_type in ["프로그램", "함수", "함수블록", "Program", "Function", "Function Block"]:
-        try:
-            pageItem = squish.waitForObjectItem(
-                tree,
-                "*.POU." + page_type + "." + page_name,
-                timeout)
-
-            squish.doubleClick(pageItem)
-            squish.snooze(0.5)
-            return
-
-        except:
-            pass
-
-    raise Exception("Page not found: " + page_name)
 
 def build_project():
     """메뉴에서 빌드를 실행하고 에러 없이 성공했는지 검증합니다.
@@ -177,6 +149,62 @@ def check_build_result():
     else:
         squish.test.fail(f"빌드 실패! {button_text}이(가) 발견되었습니다.")
         return False
+
+def create_project(project_name):
+    try:
+        squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_Documents_mdp_QMenuBar, "파일"))
+        squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenu_3, "새 프로젝트"))
+        squish.type(squish.waitForObject(names.tab_1_edProjectName_MinervaD_MvLineEditor), project_name)
+        squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
+        squish.clickButton(squish.waitForObject(names.mvNewProjectDialog_btnNext_QPushButton))
+    except Exception:
+        return False
+    return True
+
+def project_dir(project_name):
+    """프로젝트 폴더의 절대 경로('문서/{프로젝트명}')를 돌려줍니다."""
+    return os.path.join(os.path.expanduser("~"), "Documents", str(project_name))
+
+
+def _goto_folder(folder_path, timeout=1000):
+    """열려 있는 파일 다이얼로그를 ``folder_path`` 로 이동시킵니다.
+
+    파일 다이얼로그는 마지막에 사용한 디렉터리를 기억하므로, 같은 AUT 인스턴스에서
+    프로젝트를 연달아 열면 두 번째부터는 '문서' 폴더가 아니라 직전 프로젝트 폴더가
+    열립니다. 파일명 입력란에 폴더 절대경로를 입력하고 Enter 를 눌러 항상 원하는
+    폴더에서 시작하도록 만듭니다.
+
+    :returns: 이동을 시도했으면 ``True``, 입력란을 찾지 못했으면 ``False``.
+    """
+    try:
+        edit = squish.waitForObject(names.qFileDialog_fileNameEdit_QLineEdit, timeout)
+    except LookupError:
+        squish.test.log("파일 다이얼로그의 파일명 입력란을 찾지 못했습니다.")
+        return False
+
+    squish.type(edit, folder_path)
+    squish.type(edit, "<Return>")
+    squish.snooze(0.5)
+    return True
+
+def open_page(page_name, timeout = 1000):
+    tree = names.mvProjectTreeFrame_treeWidget_MinervaD_MvProjectTreeWidget
+
+    for page_type in ["프로그램", "함수", "함수블록", "Program", "Function", "Function Block"]:
+        try:
+            pageItem = squish.waitForObjectItem(
+                tree,
+                "*.POU." + page_type + "." + page_name,
+                timeout)
+
+            squish.doubleClick(pageItem)
+            squish.snooze(0.5)
+            return
+
+        except:
+            pass
+
+    raise Exception("Page not found: " + page_name)
     
 def delete_project(project_name):
     """프로젝트 폴더를 삭제합니다."""
