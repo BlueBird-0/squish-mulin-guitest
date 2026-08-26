@@ -2,7 +2,7 @@
 
 from objectmaphelper import *
 
-muLiN_Creator_MinervaD_MvMainWindow = {"type": "MinervaD::MvMainWindow", "unnamed": 1, "visible": 1, "windowTitle": "MuLiN Creator"}
+muLiN_Creator_MinervaD_MvMainWindow = {"type": "MinervaD::MvMainWindow", "unnamed": 1, "windowTitle": "MuLiN Creator"}
 
 muLiN_Creator_QMenu = {"title": "파일", "type": "QMenu", "unnamed": 1, "visible": 0, "window": muLiN_Creator_MinervaD_MvMainWindow}
 o_QAction_menu_file = {"container": muLiN_Creator_QMenu, "text": "파일", "type": "QAction", "unnamed": 1, "visible": True}
