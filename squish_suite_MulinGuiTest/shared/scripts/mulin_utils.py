@@ -150,7 +150,7 @@ def check_build_result():
         squish.test.fail(f"빌드 실패! {button_text}이(가) 발견되었습니다.")
         return False
 
-def create_project(project_name):
+def new_project(project_name):
     try:
         squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_Documents_mdp_QMenuBar, "파일"))
         squish.activateItem(squish.waitForObjectItem(names.muLiN_Creator_QMenu_3, "새 프로젝트"))

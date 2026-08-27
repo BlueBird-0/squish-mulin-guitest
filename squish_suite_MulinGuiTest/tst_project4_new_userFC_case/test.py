@@ -72,5 +72,3 @@ def main():
     # 7. 여기까지 잘 오고, Build가 된다면 userFC 프로젝트가 성공된 것으로 판정합니다.
     mulin.build_project()
     
-    snooze(5)
-    
