@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "squish": {
-      "command": "uv",
-      "args": ["--directory", "mcp-squish", "run", "squish-mcp"]
-    }
-  }
-}

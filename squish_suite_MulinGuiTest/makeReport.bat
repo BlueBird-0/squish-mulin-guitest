@@ -1,1 +1,0 @@
-"C:\Users\User\Squish for Qt 9.2.2\bin\squishrunner.exe" --testsuite "./" --local --reportgen "html,report"

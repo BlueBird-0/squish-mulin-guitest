@@ -1,0 +1,1 @@
+squishrunner.exe --testsuite ./ --local --reportgen html,"./report"

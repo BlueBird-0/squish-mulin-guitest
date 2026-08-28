@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MinervaD_Project>
+<MinervaD_Project software_version="1.0.0.11026" project_name="UserFcTest" organization="" author="IHJEON">
+    <SecretData>3b1e1bfc941b032bce91e7615a13638e18b1975bb0fc892c</SecretData>
+    <Programs>
+        <Program id="12288" name="Program1" type="PRG" description="" codeLanguage="Ld" createdTime="2026-08-18 09:13:03" modifyTime="2026-08-20 16:32:23">
+            <Variables>
+                <Variable name="out" section="Var" data_type="BOOL">
+                    <AllowDataTypes>BOOL</AllowDataTypes>
+                </Variable>
+                <Variable name="userByte" section="Var" data_type="BYTE">
+                    <AllowDataTypes>BYTE</AllowDataTypes>
+                </Variable>
+            </Variables>
+            <Logic>
+                <Network disabled="0" comment="" label="">
+                    <Item type="Line"/>
+                    <Item type="Box" id="16384" functionName="UserFc1" boxType="Open">
+                        <Parameters/>
+                    </Item>
+                    <Item type="Line" prevCount="1"/>
+                    <Item type="Coil" coilType="Open">
+                        <Parameters>
+                            <ItemParameter name="" value="out" argumentType="Variable" access="W">
+                                <AllowDataTypes>BOOL</AllowDataTypes>
+                            </ItemParameter>
+                        </Parameters>
+                    </Item>
+                    <Item type="Line" prevCount="1">
+                        <Empty/>
+                    </Item>
+                </Network>
+                <Network disabled="0" comment="" label="">
+                    <Item type="Line"/>
+                    <Item type="Box" id="16385" functionName="UserFc2" boxType="Open">
+                        <Parameters>
+                            <ItemParameter name="inputByte" value="%IB0" argumentType="Address" access="R">
+                                <AllowDataTypes>BYTE</AllowDataTypes>
+                            </ItemParameter>
+                            <ItemParameter name="outByte" value="%IB10" argumentType="Address" access="W">
+                                <AllowDataTypes>BYTE</AllowDataTypes>
+                            </ItemParameter>
+                        </Parameters>
+                    </Item>
+                    <Item type="Line" prevCount="1"/>
+                    <Item type="Coil" coilType="Open">
+                        <Parameters>
+                            <ItemParameter name="" value="out" argumentType="Variable" access="W">
+                                <AllowDataTypes>BOOL</AllowDataTypes>
+                            </ItemParameter>
+                        </Parameters>
+                    </Item>
+                    <Item type="Line" prevCount="1">
+                        <Empty/>
+                    </Item>
+                </Network>
+                <Network disabled="0" comment="" label="">
+                    <Item type="Line"/>
+                    <Item type="Box" id="16386" functionName="UserFc3" boxType="Open">
+                        <Parameters>
+                            <ItemParameter name="inoutByte" value="userByte" argumentType="Variable" access="RW">
+                                <AllowDataTypes>BYTE</AllowDataTypes>
+                            </ItemParameter>
+                        </Parameters>
+                    </Item>
+                    <Item type="Line" prevCount="1"/>
+                    <Item type="Coil" coilType="Open">
+                        <Parameters>
+                            <ItemParameter name="" value="out" argumentType="Variable" access="W">
+                                <AllowDataTypes>BOOL</AllowDataTypes>
+                            </ItemParameter>
+                        </Parameters>
+                    </Item>
+                    <Item type="Line" prevCount="1">
+                        <Empty/>
+                    </Item>
+                </Network>
+            </Logic>
+        </Program>
+    </Programs>
+</MinervaD_Project>

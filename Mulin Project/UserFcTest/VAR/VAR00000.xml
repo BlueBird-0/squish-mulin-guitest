@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MinervaD_Project>
+<MinervaD_Project software_version="1.0.0.11026" project_name="UserFcTest" organization="" author="IHJEON">
+    <SecretData>1477f6b5303903cfc9a2245cf0b1007ae3dbbbed3b290f94</SecretData>
+    <Variables>
+        <Variable name="System" section="VarGlobal" data_type="SystemInfo" predefined="1" comment="현재 시스템 상태를 제공합니다.">
+            <AllowDataTypes>SystemInfo</AllowDataTypes>
+        </Variable>
+        <Variable name="Project" section="VarGlobal" data_type="ProjectInfo" predefined="1" comment="프로젝트에 관련된 정보를 제공합니다.">
+            <AllowDataTypes>ProjectInfo</AllowDataTypes>
+        </Variable>
+        <Variable name="Task_MainTask" section="VarGlobal" data_type="TaskInfo" predefined="1" comment="태스크에 관련된 정보입니다.">
+            <AllowDataTypes>TaskInfo</AllowDataTypes>
+        </Variable>
+    </Variables>
+</MinervaD_Project>
