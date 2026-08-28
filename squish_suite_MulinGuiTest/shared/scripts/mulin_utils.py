@@ -163,7 +163,7 @@ def new_project(project_name):
 
 def project_dir(project_name):
     """프로젝트 폴더의 절대 경로('문서/{프로젝트명}')를 돌려줍니다."""
-    return os.path.join(os.path.expanduser("~"), "Documents", str(project_name))
+    return os.path.join(os.path.expanduser("~"), "Documents\MuLiN Creator", str(project_name))
 
 
 def _goto_folder(folder_path, timeout=1000):
@@ -208,7 +208,7 @@ def open_page(page_name, timeout = 1000):
     
 def delete_project(project_name):
     """프로젝트 폴더를 삭제합니다."""
-    path = os.path.join(os.path.expanduser("~"), "Documents", project_name)
+    path = os.path.join(os.path.expanduser("~"), "Documents\MuLiN Creator", project_name)
     shutil.rmtree(path, ignore_errors=True)
     squish.test.log("프로젝트 폴더 삭제: %s" % path)    
     
